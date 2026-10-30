@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tocchhka.pro/sitemap.xml
