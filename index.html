@@ -1668,6 +1668,7 @@ main{display:block;min-height:70vh}
 </section>
 
 <!-- CASE STUDY PAGES (rendered from PROJECTS) -->
+<section class="page" data-page="work/serbun" data-project="serbun" data-title="Сербун — ТОЧКА" hidden></section>
 <section class="page" data-page="work/prod" data-project="prod" data-title="PROD — ТОЧКА" hidden></section>
 <section class="page" data-page="work/darsy" data-project="darsy" data-title="Darsy — ТОЧКА" hidden></section>
 <section class="page" data-page="work/restcdl" data-project="restcdl" data-title="Restcdl — ТОЧКА" hidden></section>
@@ -2045,6 +2046,17 @@ const NOTE_CONCEPT = 'Это концепт-кейс: показываем, ка
 const PALETTE_BRAND = [['Чернила', '#1b1c26'], ['Кобальт', '#2340ff'], ['Туман', '#e9ebf3'], ['Белый', '#ffffff']];
 
 const PROJECTS = [
+  { id: 'serbun', name: 'Сербун', sub: 'запуск личного бренда и экосистемы', cat: 'marketing', catLabel: 'Запуск', year: 2026, status: 'В работе',
+    img: 'cover-a', pos: '50% 50%', alt: 'Дорожная карта запуска экосистемы Сербуна',
+    client: 'Александр Сербун', role: 'Стратегия, сайт и продукт «Ближе»', time: '6 месяцев', plan: 'retainer', device: 'browser', domain: 'Roadmap 2026–2027',
+    lead: 'Собираем вокруг Александра Сербуна систему: личный бренд, приложение знакомств «Ближе», клуб и живые события. Без рекламного бюджета.',
+    problem: 'У Александра за плечами работа ведущим и организатором событий, свой YouTube и Instagram. Но площадки живут по отдельности, а идеи продуктов, «Ближе» и клуба, не собраны в одну систему. Реклама в планах нулевая, значит всё держится на органике и регулярном контенте.',
+    approach: 'Составили дорожную карту на шесть месяцев с датами от фактического старта: что делаем в каждый месяц, кто отвечает и по каким условиям переходим дальше. Сайт сделан, «Ближе» в разработке.',
+    points: ['Экосистема: личный бренд в центре, два продукта («Ближе» и клуб), мост между ними — живые события', 'Контент: одна съёмка питает Instagram, TikTok, YouTube Shorts и Telegram, подготовлен банк из 30 тем для первых видео', 'Воронки: у каждого перехода есть источник, действие, конверсия и ответственный', 'Платный запуск только после проверки MVP, оплаты и возвратов, а не по календарю', 'KPI без выдуманных целей: сначала базовая статистика, потом цифры'],
+    outcome: 'Проект идёт: сайт готов, продукт «Ближе» в разработке, запуск площадок и контента пойдёт этапами М1–М6.',
+    note: 'Это живой проект, результатов в цифрах пока нет. Мы добавим их сюда, когда они появятся, и не публикуем то, чего не было.',
+    cta: 'Обсудить запуск',
+    tags: ['Стратегия', 'Контент', 'Продукт'], palette: PALETTE_BRAND },
   { id: 'prod', name: 'PROD', sub: 'лендинг личного бренда', cat: 'web', catLabel: 'Лендинг', year: 2026, real: true,
     url: 'https://prodsimon.ru/', domain: 'prodsimon.ru', shot: 'shot-prod',
     img: 'cover-b', pos: '50% 50%', alt: 'Главная страница сайта PROD',
@@ -2155,6 +2167,10 @@ const row = (a, b, c) => `<div style="display:grid;grid-template-columns:${c || 
 const tgNote = (title, lines) => `<div style="background:#fff;border-radius:1.2em;padding:1.1em 1.2em;box-shadow:0 .4em 1.4em rgba(16,22,64,.08)"><small>Telegram · сейчас</small><b style="display:block;margin:.35em 0">${title}</b>${lines.map((l) => `<div style="color:#4a4d60">${l}</div>`).join('')}</div>`;
 
 const SCREENS = {
+  serbun: {
+    main: () => browser(`<div style="font-size:2.3em;line-height:.95;font-weight:800;letter-spacing:-.045em">Сербун объединяет людей</div><div style="color:#6b6e80">План запуска на шесть месяцев</div><div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М1</b><span><b>Упаковка и запуск</b><br><span style="color:#6b6e80">Площадки, первая серия видео</span></span></div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М2</b><span><b>Спрос и подготовка</b><br><span style="color:#6b6e80">Лист ожидания «Ближе», эфир</span></span></div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М3</b><span><b>MVP и пилот клуба</b><br><span style="color:#6b6e80">Тест продукта на живых людях</span></span></div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М4</b><span><b>Коммерческий запуск</b><br><span style="color:#6b6e80">Оплата на ограниченном объёме</span></span></div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М5</b><span><b>Усиление работающего</b><br><span style="color:#6b6e80">Повторяем то, что сработало</span></span></div><div style="display:grid;grid-template-columns:3.2em 1fr;gap:1em;align-items:start;padding:.8em 0;border-bottom:1px solid #eceef5"><b style="color:#2340ff">М6</b><span><b>Управляемый масштаб</b><br><span style="color:#6b6e80">Решение о следующем полугодии</span></span></div></div>`, ['SERBUN', ['Карта', 'Контент', 'Воронки', 'KPI']]),
+    second: () => phone(['Воронка', 'Путь в «Ближе»'], `${bub('Видео в Reels и TikTok')}${bub('Профиль и сайт', 1)}${bub('Регистрация и анкета')}<div style="display:flex;gap:.6em;flex-wrap:wrap">${chipBtn('Лист ожидания', 1)}${chipBtn('Эфир')}${chipBtn('Событие')}</div><div class="ui-btn">Первое знакомство</div>`)
+  },
   'salon-bot': {
     main: () => phone(['Салон · запись', 'Запишем вас'], `${bub('Выберите услугу')}<div style="display:flex;gap:.6em;flex-wrap:wrap">${chipBtn('Маникюр', 1)}${chipBtn('Брови')}${chipBtn('Ресницы')}</div>${bub('Маникюр', 1)}${bub('Пятница: 14:00 или 16:30?')}<div style="display:flex;gap:.6em">${chipBtn('14:00', 1)}${chipBtn('16:30')}</div><div class="ui-btn">Подтвердить запись</div>`),
     second: () => phone(['Сводка мастеру', 'Записи на сегодня'], `${tgNote('3 записи', ['10:00 · Маникюр', '12:30 · Брови', '16:30 · Маникюр'])}<div style="background:#fff;border-radius:1.2em;padding:1.1em 1.2em"><small>Напоминание клиенту</small><b style="display:block;margin-top:.35em">Завтра в 14:00 ждём вас</b></div>`)
@@ -2223,7 +2239,7 @@ const PULSE_RANGES = [];
   function workCard(p, i = 0) {
     return `<a class="work-card rv" style="--i:${i % 2}" href="#/work/${p.id}" data-cat="${p.cat}">
       <div class="wc-media dev-${p.device}"><img src="${IMG[p.img]}" width="1536" height="1024" alt="${p.alt}" loading="lazy" decoding="async" style="object-position:${p.pos}">${device(p)}<span class="wc-go" aria-hidden="true">${ic('arrow-up-right')}</span></div>
-      <div class="wc-meta"><h3>${p.name}<span class="s">${p.sub}</span></h3><div class="wc-tags"><span class="chip">${p.catLabel}</span><span class="yr">${p.concept ? "Концепт" : p.year}</span></div></div>
+      <div class="wc-meta"><h3>${p.name}<span class="s">${p.sub}</span></h3><div class="wc-tags"><span class="chip">${p.catLabel}</span><span class="yr">${p.concept ? "Концепт" : (p.status || p.year)}</span></div></div>
     </a>`;
   }
 
@@ -2345,7 +2361,7 @@ const PULSE_RANGES = [];
         : `<figure class="screen-tile tint rv">${device(p, 'main')}<figcaption>Главный экран</figcaption></figure><figure class="screen-tile rv" style="--i:1">${device(p, 'second')}<figcaption>Детали</figcaption></figure>`;
     const third = p.real
       ? `<div><dt>Сайт</dt><dd><a href="${p.url}" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:4px">${p.domain}</a></dd></div>`
-      : `<div><dt>Срок</dt><dd>${p.time}</dd></div>`;
+      : `<div><dt>${p.status ? 'Статус' : 'Срок'}</dt><dd>${p.status ? p.status + ', ' + p.time : p.time}</dd></div>`;
     const chips = `<span class="chip">${p.catLabel}</span>` + (p.concept ? '<span class="chip soft">Концепт</span>' : (p.tags || []).map((t) => `<span class="chip">${t}</span>`).join(''));
     sec.innerHTML = `
     <div class="wrap phead">
@@ -2368,7 +2384,7 @@ const PULSE_RANGES = [];
     <div class="wrap section" style="padding-top:0">
       ${p.real
         ? `<div class="cs-body"><h2 class="rv">Посмотреть <span class="s">вживую</span></h2><div class="prose rv"><p>Сайт опубликован, его можно открыть и пройти так же, как это сделает посетитель.</p><p><a class="btn btn-brand" href="${p.url}" target="_blank" rel="noopener"><span class="btn-label">Открыть сайт</span>${ic('arrow-up-right', 'ic go')}</a></p></div></div>`
-        : `<div class="cs-body"><h2 class="rv">Что получает <span class="s">клиент</span></h2><div class="prose rv"><p>${p.outcome}</p><p class="muted" style="font-size:14.5px">${NOTE_CONCEPT}</p><p><a class="btn btn-brand" href="#/contact"><span class="btn-label">Хочу так же</span>${ic('arrow-right', 'ic go')}</a></p></div></div>`}
+        : `<div class="cs-body"><h2 class="rv">${p.status ? 'Что <span class="s">сейчас</span>' : 'Что получает <span class="s">клиент</span>'}</h2><div class="prose rv"><p>${p.outcome}</p><p class="muted" style="font-size:14.5px">${p.note || NOTE_CONCEPT}</p><p><a class="btn btn-brand" href="#/contact"><span class="btn-label">${p.cta || 'Хочу так же'}</span>${ic('arrow-right', 'ic go')}</a></p></div></div>`}
     </div>
     <div class="wrap section" style="padding-top:0">
       <a class="next-case" href="#/work/${next.id}"><div style="padding:clamp(8px,2vw,24px)"><small>Следующий проект</small><h2 class="pair sm"><span class="g">${next.name}</span><span class="s">${next.sub}</span></h2><span class="link brand">Читать кейс${ic('arrow-right')}</span></div><div class="nc-media"><img src="${IMG[next.img]}" width="1536" height="1024" alt="${next.alt}" loading="lazy" decoding="async" style="object-position:${next.pos}"></div></a>
@@ -2633,7 +2649,7 @@ const PULSE_RANGES = [];
   /* ==========================================================================
      WORK INDEX — filters + search, with counts and an empty state.
      ========================================================================== */
-  const CATS = [['all', 'Все'], ['web', 'Сайты'], ['auto', 'Автоматизация']];
+  const CATS = [['all', 'Все'], ['web', 'Сайты'], ['auto', 'Автоматизация'], ['marketing', 'Маркетинг']];
   let fCat = 'all', fQ = '';
   function renderWork() {
     const q = fQ.trim().toLowerCase();
