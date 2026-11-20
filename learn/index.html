@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tochka Sales · учебная платформа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#f2f0eb;--ink:#15161b;--fog:#d9dadf;--slate:#4a4e5c;--mist:#a9abb3;--char:#2a2c36;--red:#c8321e;--mono:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Onest,system-ui,sans-serif;background:var(--bone);color:var(--ink);line-height:1.6;min-height:100vh}
+a{color:inherit}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.btn{font:inherit;font-weight:700;border:0;border-radius:999px;background:var(--ink);color:var(--bone);padding:14px 26px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.line{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.sm{padding:10px 18px;font-size:14px}
+.btn:disabled{opacity:.5;cursor:default}
+.dot{display:inline-block;width:.22em;height:.22em;border-radius:50%;background:var(--red);margin-left:.05em}
+/* gate */
+.gate{min-height:100vh;display:grid;place-items:center;padding:24px}
+.gate .card{width:100%;max-width:520px}
+.gate h1{font-size:clamp(44px,9vw,84px);line-height:.95;letter-spacing:-.03em;margin:14px 0 22px}
+.gate p{color:var(--slate);margin-bottom:22px}
+.gate form{display:flex;gap:10px;flex-wrap:wrap}
+.gate input{flex:1 1 220px;font:inherit;font-family:var(--mono);font-size:16px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);background:transparent;border-radius:999px;padding:13px 20px;color:var(--ink)}
+.msg{margin-top:14px;font-size:14px;min-height:20px}
+.msg.err{color:var(--red)}
+.gate .alt{margin-top:26px;font-size:14px;color:var(--slate)}
+.gate .alt a{cursor:pointer;font-weight:700}
+/* app */
+.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+aside{background:var(--ink);color:var(--bone);padding:26px 20px;position:sticky;top:0;height:100vh;overflow:auto}
+aside .brand{font-weight:800;font-size:20px;letter-spacing:-.02em;margin-bottom:22px;display:flex;align-items:center;gap:8px}
+aside .brand i{width:14px;height:14px;border-radius:50%;background:var(--red)}
+aside h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin:22px 0 8px;font-weight:400}
+aside .tr{margin-bottom:6px}
+aside .trt{font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+aside .trt small{font-family:var(--mono);font-size:10px;color:var(--mist);letter-spacing:.1em}
+aside .les{display:block;padding:7px 10px;border-radius:10px;font-size:14px;color:#d9dadf;text-decoration:none;cursor:pointer;line-height:1.35}
+aside .les:hover{background:var(--char)}
+aside .les.on{background:var(--bone);color:var(--ink);font-weight:600}
+aside .les.done::after{content:" ✓";color:#7fd08f}
+aside .lock{opacity:.5;font-size:13px;padding:2px 0 2px 2px}
+aside form{margin-top:12px;display:flex;gap:6px}
+aside input{flex:1;min-width:0;font:inherit;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:var(--char);border:0;border-radius:10px;padding:9px 10px;color:var(--bone)}
+aside button.add{font:inherit;font-size:13px;font-weight:700;border:0;border-radius:10px;background:var(--bone);color:var(--ink);padding:0 12px;cursor:pointer}
+aside .out{margin-top:20px;font-size:12px;color:var(--mist);cursor:pointer;background:none;border:0;font-family:inherit;text-decoration:underline}
+main{padding:56px clamp(20px,5vw,72px) 100px;max-width:900px}
+main h1{font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.02em;margin:10px 0 24px}
+.prose h3{font-size:22px;margin:34px 0 10px;letter-spacing:-.01em}
+.prose p{margin:12px 0;font-size:17px;color:#2c2e38}
+.prose ul,.prose ol{margin:10px 0 10px 22px;font-size:17px;color:#2c2e38}
+.prose li{margin:6px 0}
+.prose b{color:var(--ink)}
+.prose blockquote{margin:16px 0;padding:6px 20px;border-left:4px solid var(--red);background:#e8e6e0;border-radius:0 14px 14px 0}
+.prose blockquote p{margin:10px 0;font-size:16px}
+.prose ul.hw{list-style:none;margin-left:0}
+.prose .hw li{margin:10px 0}
+.prose .hw label{display:flex;gap:12px;cursor:pointer;align-items:flex-start}
+.prose .hw input{width:20px;height:20px;margin-top:4px;accent-color:var(--ink);flex:none}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:44px;align-items:center}
+.bar{height:6px;background:var(--fog);border-radius:3px;margin:8px 0 0;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);width:0}
+.top{display:none}
+/* crm */
+.crm table{width:100%;border-collapse:collapse;font-size:14px;margin-top:18px}
+.crm th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);text-align:left;padding:8px 6px;border-bottom:2px solid var(--ink)}
+.crm td{padding:6px;border-bottom:1px solid var(--fog);vertical-align:top}
+.crm input,.crm select,.crm textarea{font:inherit;font-size:14px;width:100%;border:1px solid transparent;background:transparent;border-radius:8px;padding:6px;color:var(--ink)}
+.crm input:focus,.crm select:focus,.crm textarea:focus{border-color:var(--ink);background:#fff;outline:0}
+.crm .tw{overflow-x:auto}
+.crm .x{background:none;border:0;cursor:pointer;color:var(--slate);font-size:18px}
+.crm .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.stats span{background:#e8e6e0;border-radius:999px;padding:5px 12px;font-size:13px}
+@media(max-width:820px){
+  .app{grid-template-columns:1fr}
+  aside{position:fixed;inset:0 auto 0 0;width:min(86vw,320px);z-index:20;transform:translateX(-100%);transition:transform .25s}
+  aside.open{transform:none}
+  .top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;position:sticky;top:0;background:var(--bone);border-bottom:1px solid var(--fog);z-index:10}
+  main{padding-top:30px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var root=$('#root'), VAULT=null, KEYS={}, DATA={}, TR=null;
+var ORDER=['base','sites','ai','avatars','produce'];
+var NAMES={base:'Основа продаж',sites:'Сайты',ai:'ИИ-автоматизации',avatars:'ИИ-аватары',produce:'Продюсирование'};
+var S={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function b2u(b){var s=atob(b),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u}
+function hex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
+function norm(c){return c.toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/(.{4})(?=.)/g,'$1-')}
+function loadVault(){
+  if(VAULT) return Promise.resolve(VAULT);
+  return fetch('vault.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('vault');return r.json()}).then(function(v){VAULT=v;return v});
+}
+function tryCode(code){
+  if(!window.crypto||!crypto.subtle) return Promise.reject(new Error('Нужен защищённый адрес (https). Откройте страницу по ссылке с https.'));
+  code=norm(code);
+  return loadVault().then(function(v){
+    return crypto.subtle.digest('SHA-256',new TextEncoder().encode('id|'+code)).then(function(h){
+      var id=hex(h).slice(0,16);
+      var e=v.entries.filter(function(x){return x.id===id})[0];
+      if(!e) throw new Error('Код не подошёл. Проверьте, что он введён без ошибок.');
+      return crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']).then(function(m){
+        return crypto.subtle.deriveKey({name:'PBKDF2',salt:b2u(e.salt),iterations:200000,hash:'SHA-256'},m,{name:'AES-GCM',length:256},false,['decrypt']);
+      }).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b2u(e.iv)},k,b2u(e.ct))})
+      .then(function(pt){
+        var g=JSON.parse(new TextDecoder().decode(pt));
+        g.forEach(function(x){KEYS[x.t]=x.k});
+        S.set('ts_keys',KEYS);
+        return g.length;
+      });
+    });
+  });
+}
+function openBundles(){
+  return loadVault().then(function(v){
+    var jobs=ORDER.filter(function(t){return KEYS[t]&&v.bundles[t]&&!DATA[t]}).map(function(t){
+      return crypto.subtle.importKey('raw',b2u(KEYS[t]),'AES-GCM',false,['decrypt']).then(function(k){
+        var b=v.bundles[t];
+        return crypto.subtle.decrypt({name:'AES-GCM',iv:b2u(b.iv)},k,b2u(b.ct));
+      }).then(function(pt){DATA[t]=JSON.parse(new TextDecoder().decode(pt))}).catch(function(){delete KEYS[t];S.set('ts_keys',KEYS)});
+    });
+    return Promise.all(jobs);
+  });
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---------- экран входа ---------- */
+function gate(msg){
+  root.innerHTML='<div class="gate"><div class="card"><span class="mono">tochka sales</span><h1>учебная<br>платформа<span class="dot"></span></h1>'+
+  '<p>Введите код доступа, который вы получили после оплаты.</p>'+
+  '<form id="gf"><input id="gc" placeholder="XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="btn" type="submit">Войти</button></form>'+
+  '<div class="msg'+(msg?' err':'')+'" id="gm">'+esc(msg||'')+'</div>'+
+  '<div class="alt">Ещё не купили курс? <a id="gtrial">Открыть пробный пакет</a> без кода.</div></div></div>';
+  $('#gf').addEventListener('submit',function(e){
+    e.preventDefault();var b=$('#gf button');b.disabled=true;$('#gm').className='msg';$('#gm').textContent='Проверяем…';
+    tryCode($('#gc').value).then(function(){return openBundles()}).then(function(){location.hash='#/';start()}).catch(function(er){b.disabled=false;$('#gm').className='msg err';$('#gm').textContent=er.message||'Не удалось войти'});
+  });
+  $('#gtrial').addEventListener('click',function(){TR=true;start()});
+}
+
+/* ---------- приложение ---------- */
+var done=S.get('ts_done',{}), hw=S.get('ts_hw',{});
+function allLessons(){
+  var arr=[];
+  if(TR&&!ORDER.some(function(t){return DATA[t]})){VAULT&&VAULT.trial.lessons.forEach(function(l){arr.push({t:'trial',l:l})});return arr}
+  ORDER.forEach(function(t){if(DATA[t])DATA[t].lessons.forEach(function(l){arr.push({t:t,l:l})})});
+  return arr;
+}
+function find(id){var a=allLessons();for(var i=0;i<a.length;i++)if(a[i].l.id===id)return {i:i,x:a[i],all:a};return null}
+function progress(){var a=allLessons(),n=a.filter(function(x){return done[x.l.id]}).length;return {n:n,t:a.length}}
+function sidebar(cur){
+  var h='<div class="brand"><i></i>tochka sales</div>';
+  var p=progress();
+  h+='<div class="mono" style="color:#a9abb3">Прогресс: '+p.n+' из '+p.t+'</div><div class="bar" style="background:#2a2c36"><i style="width:'+(p.t?Math.round(p.n/p.t*100):0)+'%"></i></div>';
+  if(TR&&!ORDER.some(function(t){return DATA[t]})){
+    h+='<h4>Пробный пакет</h4>';
+    VAULT.trial.lessons.forEach(function(l){h+='<a class="les'+(cur===l.id?' on':'')+(done[l.id]?' done':'')+'" href="#/l/'+l.id+'">'+esc(l.title)+'</a>'});
+  } else {
+    h+='<h4>Программа</h4>';
+    ORDER.forEach(function(t){
+      h+='<div class="tr"><div class="trt">'+NAMES[t]+(DATA[t]?'':'<small>закрыто</small>')+'</div>';
+      if(DATA[t]) DATA[t].lessons.forEach(function(l){h+='<a class="les'+(cur===l.id?' on':'')+(done[l.id]?' done':'')+'" href="#/l/'+l.id+'">'+esc(l.title)+'</a>'});
+      else h+='<div class="lock">Откроется по коду</div>';
+      h+='</div>';
+    });
+    h+='<h4>Инструменты</h4><a class="les'+(cur==='crm'?' on':'')+'" href="#/crm">Шаблон CRM</a>';
+  }
+  h+='<h4>Добавить код</h4><form id="af"><input id="ac" placeholder="XXXX-XXXX-XXXX" autocomplete="off"><button class="add" type="submit">+</button></form><div class="msg" id="am" style="font-size:12px;color:#a9abb3"></div>';
+  h+='<button class="out" id="out">Выйти</button>';
+  return h;
+}
+function shell(cur,inner){
+  root.innerHTML='<div class="top"><b>tochka sales</b><button class="btn sm line" id="mb">Меню</button></div><div class="app"><aside id="sd">'+sidebar(cur)+'</aside><main>'+inner+'</main></div>';
+  $('#mb').addEventListener('click',function(){$('#sd').classList.toggle('open')});
+  $('#sd').addEventListener('click',function(e){if(e.target.classList.contains('les'))$('#sd').classList.remove('open')});
+  $('#af').addEventListener('submit',function(e){
+    e.preventDefault();var v=$('#ac').value;if(!v.trim())return;$('#am').textContent='Проверяем…';
+    tryCode(v).then(function(){return openBundles()}).then(function(){TR=false;route()}).catch(function(er){$('#am').textContent=er.message||'Код не подошёл'});
+  });
+  $('#out').addEventListener('click',function(){KEYS={};DATA={};TR=null;S.set('ts_keys',{});location.hash='';gate()});
+}
+function lesson(id){
+  var f=find(id);
+  if(!f){shell('', '<h1>Урок не найден</h1><p>Выберите урок в меню.</p>');return}
+  var l=f.x.l, trk=f.x.t, hw0=hw[id]||{};
+  var tn=trk==='trial'?'Пробный пакет':NAMES[trk];
+  var inner='<span class="mono">'+esc(tn)+'</span><h1>'+esc(l.title)+'</h1><div class="prose" id="pr">'+l.html+'</div>'+
+   '<div class="nav"><button class="btn" id="dn">'+(done[id]?'Урок пройден ✓':'Отметить пройденным')+'</button>'+
+   (f.i>0?'<a class="btn line" href="#/l/'+f.all[f.i-1].l.id+'">← Назад</a>':'')+
+   (f.i<f.all.length-1?'<a class="btn line" href="#/l/'+f.all[f.i+1].l.id+'">Дальше →</a>':'')+'</div>';
+  if(trk==='trial') inner+='<p style="margin-top:34px;color:#4a4e5c">Понравилось? Полный курс откроется по коду после оплаты: <a href="https://t.me/pluuuto?text='+encodeURIComponent('Здравствуйте! Прошёл пробный пакет, хочу купить курс Tochka Sales.')+'">написать в Telegram</a>.</p>';
+  shell(id,inner);
+  var cbs=document.querySelectorAll('#pr input[data-hw]');
+  Array.prototype.forEach.call(cbs,function(cb){
+    cb.checked=!!hw0[cb.getAttribute('data-hw')];
+    cb.addEventListener('change',function(){hw[id]=hw[id]||{};hw[id][cb.getAttribute('data-hw')]=cb.checked;S.set('ts_hw',hw)});
+  });
+  $('#dn').addEventListener('click',function(){done[id]=!done[id];S.set('ts_done',done);lesson(id)});
+  window.scrollTo(0,0);
+}
+/* ---------- CRM ---------- */
+var STAGES=['новый','написал','ответил','созвон','предложение','оплатил','отказ'];
+function crm(){
+  var rows=S.get('ts_crm',[]);
+  function save(){S.set('ts_crm',rows)}
+  function draw(){
+    var cnt={};rows.forEach(function(r){cnt[r.st]=(cnt[r.st]||0)+1});
+    var h='<span class="mono">Инструменты</span><h1>Шаблон CRM</h1><p style="color:#4a4e5c;max-width:60ch">Простая таблица для лидов. Данные хранятся только в этом браузере, поэтому раз в неделю скачивайте копию в CSV.</p><div class="crm">'+
+     '<div class="stats">'+STAGES.map(function(s){return '<span>'+s+': <b>'+(cnt[s]||0)+'</b></span>'}).join('')+'</div>'+
+     '<div class="row"><button class="btn sm" id="ad">+ Добавить лид</button><button class="btn sm line" id="ex">Скачать CSV</button></div>'+
+     '<div class="tw"><table><thead><tr><th>Компания</th><th>Контакт</th><th>Зацепка</th><th>Статус</th><th>След. шаг / дата</th><th></th></tr></thead><tbody>'+
+     rows.map(function(r,i){return '<tr data-i="'+i+'"><td><input data-f="n" value="'+esc(r.n)+'"></td><td><input data-f="c" value="'+esc(r.c)+'"></td><td><textarea rows="2" data-f="h">'+esc(r.h)+'</textarea></td><td><select data-f="st">'+STAGES.map(function(s){return '<option'+(s===r.st?' selected':'')+'>'+s+'</option>'}).join('')+'</select></td><td><input data-f="nx" value="'+esc(r.nx)+'"></td><td><button class="x" data-del="'+i+'" title="Удалить">×</button></td></tr>'}).join('')+
+     '</tbody></table></div>'+(rows.length?'':'<p style="margin-top:16px;color:#4a4e5c">Пока пусто. Добавьте первого лида.</p>')+'</div>';
+    shell('crm',h);
+    $('#ad').addEventListener('click',function(){rows.unshift({n:'',c:'',h:'',st:'новый',nx:''});save();draw()});
+    $('#ex').addEventListener('click',function(){
+      var csv='﻿Компания;Контакт;Зацепка;Статус;Следующий шаг\n'+rows.map(function(r){return [r.n,r.c,r.h,r.st,r.nx].map(function(x){return '"'+String(x).replace(/"/g,'""')+'"'}).join(';')}).join('\n');
+      var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='leads.csv';a.click();
+    });
+    document.querySelector('.crm tbody').addEventListener('change',function(e){var t=e.target,tr=t.closest('tr');if(!tr||!t.getAttribute('data-f'))return;rows[+tr.getAttribute('data-i')][t.getAttribute('data-f')]=t.value;save();if(t.getAttribute('data-f')==='st'){draw()}});
+    document.querySelector('.crm tbody').addEventListener('click',function(e){var d=e.target.getAttribute('data-del');if(d!==null&&confirm('Удалить лид?')){rows.splice(+d,1);save();draw()}});
+  }
+  draw();
+}
+function route(){
+  var h=location.hash||'#/', m;
+  if(h==='#/crm'&&!(TR&&!ORDER.some(function(t){return DATA[t]}))) return crm();
+  if(m=h.match(/^#\/l\/(.+)$/)) return lesson(m[1]);
+  var a=allLessons();
+  if(!a.length){gate();return}
+  var first=a.filter(function(x){return !done[x.l.id]})[0]||a[0];
+  location.replace('#/l/'+first.l.id);
+}
+function start(){
+  loadVault().then(function(){return openBundles()}).then(function(){
+    if(!ORDER.some(function(t){return DATA[t]})&&!TR){gate();return}
+    route();
+  }).catch(function(){root.innerHTML='<div class="gate"><div class="card"><h1>Не удалось<br>загрузить</h1><p>Проверьте интернет и обновите страницу.</p></div></div>'});
+}
+window.addEventListener('hashchange',function(){if(ORDER.some(function(t){return DATA[t]})||TR)route()});
+KEYS=S.get('ts_keys',{});
+start();
+})();
+</script>
+</body>
+</html>
