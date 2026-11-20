@@ -516,9 +516,9 @@ footer{background:var(--ink);color:#9fa1aa;padding:40px 0 48px;font-size:14px;bo
           </select>
         </label>
         <div class="kitline" id="kitLine"></div>
-        <button class="btn" type="submit">Собрать заявку</button>
+        <button class="btn" type="submit">Отправить в Telegram</button>
         <div class="result" id="result" hidden>
-          <p><b>Заявка готова.</b> Отправьте её в Telegram или скопируйте текст.</p>
+          <p id="resultNote"><b>Заявка готова.</b> Отправьте её в Telegram или скопируйте текст.</p>
           <pre id="resultText"></pre>
           <div class="r">
             <a class="btn sm" id="resultTg" href="https://t.me/pluuuto">Открыть Telegram</a>
@@ -633,6 +633,8 @@ var LOGO = 'data:image/webp;base64,UklGRna8AQBXRUJQVlA4WAoAAAAQAAAAfwIAfwIAQUxQS
     txt.textContent=msg;
     $('#resultTg').href=TG_URL+(TG_URL.indexOf('?')>-1?'&':'?')+'text='+encodeURIComponent(msg);
     res.hidden=false;
+    $('#resultNote').innerHTML='<b>Открываем Telegram…</b> Сообщение уже готово — осталось нажать «Отправить». Если чат не открылся, нажмите кнопку ниже.';
+    setTimeout(function(){window.location.href=$('#resultTg').href;},700);
   });
   $('#copyBtn').addEventListener('click',function(){
     var b=this;
