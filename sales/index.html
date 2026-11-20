@@ -174,6 +174,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:60;mix-blend-mode:normal}
 .proof div{display:flex;gap:12px;align-items:center;font-weight:700}
 .proof i{width:42px;height:42px;border-radius:50%;background:#c4c5cb;display:block;flex:none}
 .proof span{display:block;font-weight:400;font-size:14px;color:#6b6d76}
+.portrait{display:none}
+.author{grid-template-columns:1fr!important}
+.first{margin-top:56px;border:2px solid var(--ink);border-radius:24px;padding:30px;max-width:760px}
+.first p{margin-top:12px;font-size:18px;color:#4a4c55}
 .author{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;margin-top:80px;align-items:center}
 .portrait{aspect-ratio:4/5;border-radius:28px;background:var(--ink);position:relative;overflow:hidden}
 .portrait::before{content:"";position:absolute;left:50%;top:34%;width:34%;aspect-ratio:1;border-radius:50%;background:#2a2c36;transform:translateX(-50%)}
@@ -462,20 +466,18 @@ footer{background:var(--ink);color:#9fa1aa;padding:40px 0 48px;font-size:14px;bo
   <section class="people" data-orb="0.9,0.55,0.3,#1d1e26,#c8321e">
     <div class="wrap in">
       <span class="mono">Люди</span>
-      <h2 style="margin-top:16px">кто учит<br>и кто учился</h2>
+      <h2 style="margin-top:16px">кто<br>учит</h2>
       <div class="author">
         <div class="portrait"></div>
         <div>
           <span class="mono">Автор курса</span>
           <h3 style="margin-top:12px">Богдан<span class="dot"></span></h3>
           <p>Руководит digital-агентством: делает сайты и внедряет ИИ-автоматизации. Клиентов приводит через холодные продажи и учит этому свою команду.</p>
-          <p>Курс собран из рабочих скриптов и разборов реальных звонков. Текст можно заменить на вашу историю.</p>
         </div>
       </div>
-      <div class="cards3">
-        <div class="proof"><q>Место для отзыва ученика: что было до курса и что стало после.</q><div><i></i><p>Имя ученика<span>Направление · результат</span></p></div></div>
-        <div class="proof"><q>Место для отзыва ученика: первая оплаченная сделка и как к ней пришли.</q><div><i></i><p>Имя ученика<span>Направление · результат</span></p></div></div>
-        <div class="proof"><q>Место для отзыва ученика: что оказалось самым полезным.</q><div><i></i><p>Имя ученика<span>Направление · результат</span></p></div></div>
+      <div class="first">
+        <span class="mono">Первый поток</span>
+        <p>Курс только запускается, поэтому отзывов пока нет, и мы не будем их придумывать. Первые ученики пройдут программу вместе с автором и будут получать разборы лично. Отзывы появятся здесь после первого потока.</p>
       </div>
     </div>
   </section>
@@ -488,8 +490,8 @@ footer{background:var(--ink);color:#9fa1aa;padding:40px 0 48px;font-size:14px;bo
         <details open><summary>Нужен ли опыт в продажах?</summary><p>Нет. Модуль «Основа продаж» начинается с нуля и даёт всё нужное для первого контакта с клиентом.</p></details>
         <details><summary>Можно ли взять только одно направление?</summary><p>Да. Основа входит всегда, а направления вы добавляете в набор по одному или все сразу.</p></details>
         <details><summary>Нужно ли самому делать сайты или ИИ-продукты?</summary><p>Нет. Вы учитесь продавать, а саму работу можно передавать исполнителю. Как это организовать, разбираем внутри направлений.</p></details>
-        <details><summary>Как проходит обучение?</summary><p>Уроки в записи, задания после модулей и разборы. Точный формат и сроки впишите сюда.</p></details>
-        <details><summary>Что с оплатой и возвратом?</summary><p>Условия оплаты, рассрочки и возврата впишите сюда.</p></details>
+        <details><summary>Как проходит обучение?</summary><p>Уроки, задания после модулей и разборы. Доступ к материалам выдаём после оплаты, детали по срокам и формату уточняйте у автора в Telegram.</p></details>
+        <details><summary>Что с оплатой и возвратом?</summary><p>Оплата переводом на карту, в личных сообщениях в Telegram (@pluuuto). После заявки пришлём реквизиты. Условия возврата уточняйте до оплаты.</p></details>
       </div>
     </div>
   </section>
@@ -499,10 +501,10 @@ footer{background:var(--ink);color:#9fa1aa;padding:40px 0 48px;font-size:14px;bo
       <div>
         <span class="mono">Старт</span>
         <h2 style="margin-top:16px">оформить<span class="dot"></span></h2>
-        <p class="lead">Оставьте заявку, напишите в Telegram или сразу перейдите к оплате.</p>
+        <p class="lead">Оставьте заявку, напишите в Telegram или сразу попросите реквизиты для оплаты.</p>
         <div class="channels">
           <a class="channel" href="https://t.me/pluuuto" id="tgLink"><div><b>Написать в Telegram</b><span>Ответим на вопросы по программе</span></div><em>→</em></a>
-          <a class="channel" href="#zapis" id="payLink"><div><b>Перейти к оплате</b><span>Ссылка на оплату появится здесь</span></div><em>→</em></a>
+          <a class="channel" href="#zapis" id="payLink"><div><b>Оплатить переводом</b><span>Реквизиты пришлём в личных сообщениях Telegram</span></div><em>→</em></a>
         </div>
       </div>
       <form id="leadForm" novalidate>
@@ -550,7 +552,7 @@ footer{background:var(--ink);color:#9fa1aa;padding:40px 0 48px;font-size:14px;bo
 <script>
 /* ---- Настройки: подставьте свои значения ---- */
 var TG_URL  = 'https://t.me/pluuuto';
-var PAY_URL = '#zapis';
+var PAY_URL = 'https://t.me/pluuuto?text='+encodeURIComponent('Здравствуйте! Хочу оплатить курс Tochka Sales. Пришлите, пожалуйста, реквизиты.');
 var CUR = 'BYN';
 var BASE = {name:'Основа продаж', price:100};
 var TRACKS = [
